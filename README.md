@@ -7,13 +7,13 @@ The data in training_data.csv was provided as training data for the competition.
 
 Each competitor's submitted model would then be given a ~1000 observation test set, which, unfortunately, did not include the FIPS code. According to both the hosts of the competition, as well as most of the other competitions, the FIPS was unnecessary as it is a nominal value that contains no inherent information. Final models for the competition had to be under 50MB and run in under ten minutes.
 
-This project uses PLS regression to predict the health outcomes given the demographic and LDA features. However, the insight of this model (and the reason why it ultimately won) was because it engineers nine additional features for each observation. The features were found through close analysis of the FIPS code.
+This project uses PLS regression to predict the health outcomes given the demographic and LDA features. However, the insight of this model (and the reason why it ultimately won) was because it engineers nine additional features for each observation before regression. The features were found through close analysis of the FIPS code.
 
 While the five-digit FIPS code seems to include no information, the first two digits are, in fact, the state that that county resides in. In the data set, there were fifty-one unique FIPS codes (fifty states plus D.C.). 
 
 This model uses the training data (in which FIPS codes are provided) to train a subspace-discriminant ensemble classifier that can predict a FIPS code given the non-FIPS demographic and LDA features. Through careful tuning of hyper-parameters, the accuracy of this classifier reached nearly 95%. This model then groups the training data by state, finding the average value of each of the nine health outcomes for each state. It then appends the average health outcomes of the predicted FIPS to each observation. Then, the augmented data is simply passed to PLS regression.
 
-By adding these additional features, overall error was decreased by over 33%. The efficiency of this method is also shown by the final results of the competition: the distance between first and second place was the same distance between second and twenty-first place.
+By adding these additional features, overall error was decreased by over 33%. The efficiency of this method was also shown by the final results of the competition: the distance between first and second place was the same distance between second and twenty-first place.
 
 To execute the full model, load all files into MATLAB and call:
 
