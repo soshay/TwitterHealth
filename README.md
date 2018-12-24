@@ -1,7 +1,7 @@
 # TwitterHealth
 This project was developed in response to a graduate-level machine learning competition at the University of Pennsylvania.
 
-The data in training_data.csv was provided as training data for the competition. Within are 1019 observations of county-level Twitter habits. These observations include the following: the FIPS code of the county in question, twenty-one demographic features of the county, and 2000 LDA frequences corresponding to the topics that that county had been tweeting about. The target of the challenge was to predict nine real-valued health outcomes given these demographic and LDA features.
+The data in training_data.csv was provided as training data for the competition. Within are 1019 observations of county-level Twitter habits. These observations include the following: the FIPS code (a federally-assigned county identifier) of the county in question, twenty-one demographic features of the county, and 2000 LDA frequences corresponding to the topics that that county had been tweeting about. The target of the challenge was to predict nine real-valued health outcomes given these demographic and LDA features.
 
 Each competitor's submitted model would then be given a ~1000 observation test set, which, unfortunately, did not include the FIPS code. According to both the hosts of the competition, as well as most of the other competitions, the FIPS was unnecessary as it is a nominal value that contains no inherent information. Final models for the competition had to be under 50MB and run in under ten minutes.
 
