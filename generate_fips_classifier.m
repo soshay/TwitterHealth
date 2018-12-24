@@ -12,7 +12,7 @@ function mdl = generate_fips_classifier(data, pca_to_keep, dim_subspace, num_lea
     accuracy under given space and time requirements.
     %}
 
-    if nargin < 2
+    if nargin < 4
         pca_to_keep = 300;
         dim_subspace = 299;
         num_learners = 2;
