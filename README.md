@@ -1,7 +1,5 @@
 # TwitterHealth
-In short: this is an award-winning model that predicts health outcomes given Twitter LDA frequencies.
-
-In long: this project was developed in response to a graduate-level machine learning competition at the University of Pennsylvania.
+This project was developed in response to a graduate-level machine learning competition at the University of Pennsylvania.
 
 The data in training_data.csv was provided as training data for the competition. Within are 1019 observations of county-level Twitter habits. These observations include the following: the FIPS code of the county in question, twenty-one demographic features of the county, and 2000 LDA frequences corresponding to the topics that that county had been tweeting about. The target of the challenge was to predict nine real-valued health outcomes given these demographic and LDA features.
 
@@ -13,7 +11,7 @@ While the five-digit FIPS code seems to include no information, the first two di
 
 This model uses the training data (in which FIPS codes are provided) to train a subspace-discriminant ensemble classifier that can predict a FIPS code given the non-FIPS demographic and LDA features. Through careful tuning of hyper-parameters, the accuracy of this classifier reached nearly 95%. This model then groups the training data by state, finding the average value of each of the nine health outcomes for each state. It then appends the average health outcomes of the predicted FIPS to each observation. Then, the augmented data is simply passed to PLS regression.
 
-By adding these additional features, overall error was decreased by over 33%. The efficiency of this method was also shown by the final results of the competition: the distance between first and second place was the same distance between second and twenty-first place.
+By adding these additional features, overall error was decreased by over 33%. The efficiency of this method was also shown by the final results of the competition. This project not only won, but won by a large margin: the distance between first and second place was the same distance between second and twenty-first place.
 
 To execute the full model, load all files into MATLAB and call:
 
