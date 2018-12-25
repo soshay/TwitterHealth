@@ -17,9 +17,10 @@ function [Xtrain, Xtest] = add_state_avgs(Xtrain, Xtest)
     Xtest = [fips Xtest];
     
     % Open saved state averages.
-    % If not already generated un-comment the following line:
     
+    % If not already generated, un-comment the following line:
     % generate_state_avgs('training_data.csv', avg_filename);
+    
     state_avgs = csvread(avg_filename);
     
     % Xtrain
@@ -36,7 +37,7 @@ function [Xtrain, Xtest] = add_state_avgs(Xtrain, Xtest)
     for i = 1:size(Xtest, 1)
         to_append(i, :) = state_avgs(fips(i),:);
     end
-
     Xtest = [Xtest to_append];
+    
 end
 
